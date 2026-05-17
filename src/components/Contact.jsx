@@ -30,6 +30,14 @@ function MailIcon() {
   )
 }
 
+function WhatsAppIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    </svg>
+  )
+}
+
 function ArrowIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -57,7 +65,16 @@ const socials = [
     href: `mailto:${personal.email}`,
     icon: <MailIcon />,
   },
+  {
+    name: 'WhatsApp',
+    handle: personal.whatsapp || '+237 XXX XXX XXX',
+    href: `https://wa.me/${(personal.whatsapp || '').replace(/\D/g, '')}`,
+    icon: <WhatsAppIcon />,
+  },
 ]
+
+// ID Formspree — remplacez par le vôtre
+const FORMSPREE_ID = 'xgoqeojo'
 
 export default function Contact() {
   const { ref: r1, visible: v1 } = useScrollReveal()
@@ -65,15 +82,44 @@ export default function Contact() {
 
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
     if (!form.name || !form.email || !form.message) return
-    const mailto = `mailto:${personal.email}?subject=${encodeURIComponent(form.subject || 'Contact depuis mon portfolio')}&body=${encodeURIComponent(`Nom : ${form.name}\nEmail : ${form.email}\n\n${form.message}`)}`
-    window.location.href = mailto
-    setSent(true)
-    setTimeout(() => setSent(false), 4000)
+
+    setSending(true)
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject || 'Contact depuis mon portfolio',
+          message: form.message
+        })
+      })
+
+      if (response.ok) {
+        setSent(true)
+        setForm({ name: '', email: '', subject: '', message: '' })
+        setTimeout(() => setSent(false), 4000)
+      } else {
+        alert('Erreur lors de l\'envoi. Veuillez réessayer.')
+      }
+    } catch  {
+      alert('Erreur de connexion. Vérifiez votre internet.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -105,7 +151,7 @@ export default function Contact() {
 
           {/* Droite — formulaire */}
           <div ref={r2} className={`${styles.right} ${v2 ? styles.visible : ''}`}>
-            <div className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.row}>
                 <div className={styles.field}>
                   <label className={styles.label2}>Nom complet</label>
@@ -113,9 +159,10 @@ export default function Contact() {
                     className={styles.input}
                     type="text"
                     name="name"
-                    placeholder="Jean Mbarga"
+                    placeholder="Chris Nguefah"
                     value={form.name}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className={styles.field}>
@@ -124,9 +171,10 @@ export default function Contact() {
                     className={styles.input}
                     type="email"
                     name="email"
-                    placeholder="jean@example.com"
+                    placeholder="marcelochris98@gmail.com"
                     value={form.email}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -149,16 +197,18 @@ export default function Contact() {
                   placeholder="Décris ton projet ou ta demande..."
                   value={form.message}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <button
+                type="submit"
                 className={`${styles.submit} ${sent ? styles.sent : ''}`}
-                onClick={handleSubmit}
+                disabled={sending}
               >
-                {sent ? 'Message envoyé !' : 'Envoyer le message'}
-                {!sent && <ArrowIcon />}
+                {sending ? 'Envoi en cours...' : sent ? 'Message envoyé !' : 'Envoyer le message'}
+                {!sent && !sending && <ArrowIcon />}
               </button>
-            </div>
+            </form>
           </div>
 
         </div>

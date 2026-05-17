@@ -10,6 +10,7 @@ export const personal = {
   email: 'marcelochris98@gmail.com',
   github: 'https://github.com/marcelochris98-collab',
   linkedin: 'https://www.linkedin.com/in/chris-nguefah-ab4a0a395',
+   whatsapp: '+237689703281',
   available: true,
   // ── Photo de profil ──────────────────────────────────────
   // 1. Place ta photo dans public/images/photo.jpg
