@@ -124,7 +124,7 @@ export default function ProjectDetail() {
               <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
             </svg>
             <span>
-              Ajoute une image dans <code>public/images/</code> et renseigne <code>thumb</code> dans <code>portfolio.js</code>
+              projet en cours
             </span>
           </div>
         )}

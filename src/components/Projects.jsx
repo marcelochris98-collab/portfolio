@@ -46,7 +46,6 @@ function ProjectCard({ project, delay }) {
                 <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
               </svg>
               <span className={styles.thumbHint}>
-                {/* Ajoute une image dans /public/images/ et renseigne thumb dans portfolio.js */}
                 Aperçu à venir
               </span>
             </div>
@@ -93,18 +92,13 @@ function EmptySlot({ delay }) {
     <article
       ref={ref}
       className={`${styles.card} ${styles.empty} ${visible ? styles.visible : ''}`}
-      style={{ transitionDelay: `${delay}ms`, cursor: "pointer" }}
-      onClick={() => navigate(`/projects/${project.slug}`)}
+      style={{ transitionDelay: `${delay}ms`, cursor: "default" }}
     >
       <div className={styles.emptyContent}>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.3">
           <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
         </svg>
         <span className={styles.emptyLabel}>Projet à venir</span>
-        <span className={styles.emptyHint}>
-          Ajoute ton prochain projet dans<br />
-          <code>src/data/portfolio.js</code>
-        </span>
       </div>
     </article>
   )

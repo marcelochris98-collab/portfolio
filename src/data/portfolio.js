@@ -40,6 +40,7 @@ export const skills = [
       { name: 'Laravel', featured: true },
       { name: 'PHP 8', featured: true },
       { name: 'MySQL', featured: true },
+       { name: 'Next.js', featured: true },
       { name: 'Eloquent ORM', featured: false },
       { name: 'API REST', featured: false },
       { name: 'Migrations', featured: false },

@@ -70,7 +70,7 @@
 .status {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  padding: 0.28rem 0.7rem;
+  padding: 0.28rem 0.7Camp;
   border-radius: var(--radius-sm);
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -159,18 +159,21 @@
   pointer-events: none;
 }
 
-/* Main thumb */
+/* Main thumb (Image principale du haut) */
 .mainThumb {
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
   margin-bottom: 3.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .mainThumb img {
   width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
+  height: auto;
+  display: block;
+  object-fit: contain; /* Évite de couper les bords de votre interface web */
 }
 
 .thumbPlaceholder {
@@ -200,8 +203,6 @@
 
 /* Content sections */
 .content { display: flex; flex-direction: column; gap: 3rem; }
-
-.section {}
 
 .sectionTitle {
   font-family: var(--font-display);
@@ -286,27 +287,34 @@
   line-height: 1.5;
 }
 
-/* Gallery */
+/* Gallery (Grille des captures d'écran) */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .galleryItem {
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
 }
 
 .galleryItem img {
   width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  transition: transform 0.3s;
+  height: auto;
+  display: block;
+  object-fit: contain; /* S'assure que tout le tableau de bord s'emboîte parfaitement */
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.galleryItem:hover img { transform: scale(1.02); }
+.galleryItem:hover img { 
+  transform: scale(1.015); /* Animation de zoom subtile sans casser l'emboîtement */
+}
 
 /* Project navigation */
 .projectNav {
@@ -378,7 +386,7 @@
 @media (max-width: 768px) {
   .inner { padding: 0 1.25rem; }
   .twoCol { grid-template-columns: 1fr; }
-  .gallery { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; gap: 1rem; }
   .headerTop { flex-direction: column; }
   .projectNav { flex-direction: column; align-items: stretch; }
   .projectNavBtn { max-width: 100%; }
