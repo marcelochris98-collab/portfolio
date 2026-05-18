@@ -108,16 +108,16 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div variants={fadeUp} className={styles.ctas}>
-          <button className={styles.btnPrimary} onClick={() => navigate('/projets')}>
+          <button className={styles.btnPrimary} onClick={() => navigate('#projets')}>
             Voir mes projets
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
             </svg>
           </button>
-          <button className={styles.btnOutline} onClick={() => navigate('/profil')}>
+          <button className={styles.btnOutline} onClick={() => navigate('#about')}>
             Mon profil
           </button>
-          <button className={styles.btnOutline} onClick={() => navigate('/contact')}>
+          <button className={styles.btnOutline} onClick={() => navigate('#contact')}>
             Me contacter
           </button>
           {personal.cv && (
@@ -135,9 +135,9 @@ export default function Hero() {
         {/* Infos rapides en bas */}
         <motion.div variants={fadeUp} className={styles.meta}>
           {[
-            { icon: '📍', val: 'Douala, Cameroun' },
-            { icon: '🎓', val: 'IUC · Licence 3' },
-            { icon: '⚙️', val: 'Laravel · MySQL · React' },
+            { icon: '', val: 'Douala, Cameroun' },
+            { icon: '', val: 'IUC · Licence 3' },
+            { icon: '', val: 'Laravel · MySQL · React' },
           ].map(m => (
             <span key={m.val} className={styles.metaItem}>
               <span className={styles.metaIcon}>{m.icon}</span>
