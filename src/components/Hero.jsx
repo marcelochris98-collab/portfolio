@@ -81,13 +81,13 @@ export default function Hero() {
 
         {/* Titre principal */}
         <motion.div variants={fadeUp} className={styles.titleBlock}>
-          <h1 className={styles.h1}>
+          <h2 className={styles.h2}>
             <span className={styles.line}>Développeur</span>
             <span className={styles.lineAccent}>
               <span ref={roleRef} className={styles.typed} />
               <span className={styles.caret} />
             </span>
-          </h1>
+          </h2>
         </motion.div>
 
         {/* Sous-titre */}
