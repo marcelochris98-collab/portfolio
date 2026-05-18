@@ -20,7 +20,7 @@ const fadeIn = {
 }
 
 // Mots qui défilent en boucle
-const roles = ['Full Stack', 'Laravel', 'Backend', 'React', 'Full Stack']
+const roles = ['Full Stack', 'javaScript', 'Backend', 'React', 'Next.js' ,'Full Stack']
 
 export default function Hero() {
   const navigate = useNavigate()
