@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { personal } from '../data/portfolio'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './Contact.module.css'
 
 function GithubIcon() {
@@ -73,18 +74,22 @@ const socials = [
   },
 ]
 
-// ID Formspree — remplacez par le vôtre
 const FORMSPREE_ID = 'xgoqeojo'
 
 export default function Contact() {
   const { ref: r1, visible: v1 } = useScrollReveal()
   const { ref: r2, visible: v2 } = useScrollReveal()
+  const { t } = useLanguage()
 
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+  const handleChange = e => {
+    setErrorMsg('')
+    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -92,6 +97,7 @@ export default function Contact() {
     if (!form.name || !form.email || !form.message) return
 
     setSending(true)
+    setErrorMsg('')
 
     try {
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -113,10 +119,10 @@ export default function Contact() {
         setForm({ name: '', email: '', subject: '', message: '' })
         setTimeout(() => setSent(false), 4000)
       } else {
-        alert('Erreur lors de l\'envoi. Veuillez réessayer.')
+        setErrorMsg(t('contact.errorMsg'))
       }
     } catch  {
-      alert('Erreur de connexion. Vérifiez votre internet.')
+      setErrorMsg(t('contact.netErrorMsg'))
     } finally {
       setSending(false)
     }
@@ -125,15 +131,14 @@ export default function Contact() {
   return (
     <section id="contact" className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.label}>Contact</div>
+        <div className={styles.label}>{t('contact.label')}</div>
         <div className={styles.grid}>
 
           {/* Gauche */}
           <div ref={r1} className={`${styles.left} ${v1 ? styles.visible : ''}`}>
-            <h2 className={styles.h2}>Travaillons<br />ensemble.</h2>
+            <h2 className={styles.h2}>{t('contact.heading')}</h2>
             <p className={styles.intro}>
-              Tu as un projet, une opportunité de stage, ou tu veux simplement échanger sur la tech ?
-              Envoie-moi un message — je lis et réponds à tout.
+              {t('contact.intro')}
             </p>
             <div className={styles.socials}>
               {socials.map(s => (
@@ -154,24 +159,24 @@ export default function Contact() {
             <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.row}>
                 <div className={styles.field}>
-                  <label className={styles.label2}>Nom complet</label>
+                  <label className={styles.label2}>{t('contact.nameLabel')}</label>
                   <input
                     className={styles.input}
                     type="text"
                     name="name"
-                    placeholder="Chris Nguefah"
+                    placeholder={t('contact.namePlaceholder')}
                     value={form.name}
                     onChange={handleChange}
                     required
                   />
                 </div>
                 <div className={styles.field}>
-                  <label className={styles.label2}>Adresse email</label>
+                  <label className={styles.label2}>{t('contact.emailLabel')}</label>
                   <input
                     className={styles.input}
                     type="email"
                     name="email"
-                    placeholder="marcelochris98@gmail.com"
+                    placeholder={t('contact.emailPlaceholder')}
                     value={form.email}
                     onChange={handleChange}
                     required
@@ -179,33 +184,34 @@ export default function Contact() {
                 </div>
               </div>
               <div className={styles.field}>
-                <label className={styles.label2}>Sujet</label>
+                <label className={styles.label2}>{t('contact.subjectLabel')}</label>
                 <input
                   className={styles.input}
                   type="text"
                   name="subject"
-                  placeholder="Proposition de stage / projet..."
+                  placeholder={t('contact.subjectPlaceholder')}
                   value={form.subject}
                   onChange={handleChange}
                 />
               </div>
               <div className={styles.field}>
-                <label className={styles.label2}>Message</label>
+                <label className={styles.label2}>{t('contact.messageLabel')}</label>
                 <textarea
                   className={styles.textarea}
                   name="message"
-                  placeholder="Décris ton projet ou ta demande..."
+                  placeholder={t('contact.messagePlaceholder')}
                   value={form.message}
                   onChange={handleChange}
                   required
                 />
               </div>
+              {errorMsg && <div className={styles.alertError}>{errorMsg}</div>}
               <button
                 type="submit"
                 className={`${styles.submit} ${sent ? styles.sent : ''}`}
                 disabled={sending}
               >
-                {sending ? 'Envoi en cours...' : sent ? 'Message envoyé !' : 'Envoyer le message'}
+                {sending ? t('contact.sending') : sent ? t('contact.sent') : t('contact.sendBtn')}
                 {!sent && !sending && <ArrowIcon />}
               </button>
             </form>

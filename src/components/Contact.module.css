@@ -204,6 +204,16 @@
   pointer-events: none;
 }
 
+.alertError {
+  padding: 0.8rem 1rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+}
+
 @media (max-width: 900px) {
   .inner { padding: 5rem 1.5rem; }
   .grid { grid-template-columns: 1fr; gap: 3rem; }

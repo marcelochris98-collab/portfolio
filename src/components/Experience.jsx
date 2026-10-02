@@ -1,5 +1,6 @@
 import { experience } from '../data/portfolio'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './Experience.module.css'
 
 function TimelineItem({ item, delay }) {
@@ -26,21 +27,22 @@ function TimelineItem({ item, delay }) {
 
 export default function Experience() {
   const { ref, visible } = useScrollReveal()
+  const { t } = useLanguage()
 
   return (
     <section id="experience" className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.label}>Parcours</div>
+        <div className={styles.label}>{t('experience.label')}</div>
         <h2 ref={ref} className={`${styles.h2} ${visible ? styles.visible : ''}`}>
-          Formation &amp; Expériences
+          {t('experience.heading')}
         </h2>
 
         <div className={styles.legend}>
           <span className={styles.legendItem}>
-            <span className={`${styles.legendDot} ${styles.eduDot}`} /> Formation
+            <span className={`${styles.legendDot} ${styles.eduDot}`} /> {t('experience.legendEdu')}
           </span>
           <span className={styles.legendItem}>
-            <span className={`${styles.legendDot} ${styles.intDot}`} /> Stage professionnel
+            <span className={`${styles.legendDot} ${styles.intDot}`} /> {t('experience.legendStage')}
           </span>
         </div>
 

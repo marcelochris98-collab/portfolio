@@ -1,5 +1,6 @@
 import { skills } from '../data/portfolio'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './Skills.module.css'
 
 const categoryIcons = {
@@ -25,6 +26,10 @@ const categoryIcons = {
 
 function SkillCard({ cat, delay }) {
   const { ref, visible } = useScrollReveal()
+  const { t } = useLanguage()
+
+  const categoryTitle = t(`skills.categories.${cat.category}`) || cat.category
+
   return (
     <div
       ref={ref}
@@ -32,7 +37,7 @@ function SkillCard({ cat, delay }) {
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className={styles.cardIcon}>{categoryIcons[cat.category]}</div>
-      <div className={styles.cardTitle}>{cat.category}</div>
+      <div className={styles.cardTitle}>{categoryTitle}</div>
       <div className={styles.tags}>
         {cat.items.map(item => (
           <span key={item.name} className={`${styles.tag} ${item.featured ? styles.featured : ''}`}>
@@ -46,13 +51,14 @@ function SkillCard({ cat, delay }) {
 
 export default function Skills() {
   const { ref, visible } = useScrollReveal()
+  const { t } = useLanguage()
 
   return (
     <section id="skills" className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.label}>Compétences</div>
+        <div className={styles.label}>{t('skills.label')}</div>
         <h2 ref={ref} className={`${styles.h2} ${visible ? styles.visible : ''}`}>
-          Stack technique
+          {t('skills.subtitle')}
         </h2>
         <div className={styles.grid}>
           {skills.map((cat, i) => (

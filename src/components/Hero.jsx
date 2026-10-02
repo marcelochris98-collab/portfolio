@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { personal } from '../data/portfolio'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './Hero.module.css'
 
 const container = {
@@ -19,14 +19,12 @@ const fadeIn = {
   show:   { opacity: 1, transition: { duration: 0.9, ease: 'easeOut' } },
 }
 
-// Mots qui défilent en boucle
-const roles = ['Full Stack', 'javaScript', 'Backend', 'React', 'Next.js' ,'Full Stack']
+const roles = ['Full Stack', 'JavaScript', 'Backend', 'React', 'Next.js', 'Full Stack']
 
 export default function Hero() {
-  const navigate = useNavigate()
-  const roleRef  = useRef(null)
+  const roleRef = useRef(null)
+  const { lang, t } = useLanguage()
 
-  // Animation texte défilant
   useEffect(() => {
     let i = 0
     let charIdx = 0
@@ -35,7 +33,7 @@ export default function Hero() {
 
     const tick = () => {
       const word = roles[i % roles.length]
-      const el   = roleRef.current
+      const el = roleRef.current
       if (!el) return
 
       if (!deleting) {
@@ -61,9 +59,12 @@ export default function Hero() {
     return () => clearTimeout(timeout)
   }, [])
 
+  const scrollToSection = (id) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section className={styles.hero}>
-      {/* Glow d'arrière-plan */}
       <div className={styles.glowTop} />
       <div className={styles.glowBottom} />
 
@@ -73,16 +74,14 @@ export default function Hero() {
         initial="hidden"
         animate="show"
       >
-        {/* Badge disponible */}
         <motion.div variants={fadeUp} className={styles.badge}>
           <span className={styles.badgeDot} />
-          Disponible pour stages &amp; missions
+          {t('hero.available')}
         </motion.div>
 
-        {/* Titre principal */}
         <motion.div variants={fadeUp} className={styles.titleBlock}>
           <h2 className={styles.h2}>
-            <span className={styles.line}>Développeur</span>
+            <span className={styles.line}>{lang === 'fr' ? 'Développeur' : 'Developer'}</span>
             <span className={styles.lineAccent}>
               <span ref={roleRef} className={styles.typed} />
               <span className={styles.caret} />
@@ -90,13 +89,12 @@ export default function Hero() {
           </h2>
         </motion.div>
 
-        {/* Sous-titre */}
         <motion.p variants={fadeUp} className={styles.sub}>
-          Étudiant en Licence 3 à l'IUC Douala — je conçois des applications web
-          robustes et maintenables, de la base de données jusqu'à l'interface.
+          {lang === 'fr'
+            ? "Étudiant en Licence 3 à l'IUC Douala — je conçois des applications web robustes et maintenables, de la base de données jusqu'à l'interface."
+            : "Software Engineering Student (L3) at IUC Douala — I design robust, maintainable web applications from database to UI."}
         </motion.p>
 
-        {/* Séparateur animé */}
         <motion.div variants={fadeIn} className={styles.sep}>
           <motion.span
             className={styles.sepLine}
@@ -106,19 +104,18 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* CTAs */}
         <motion.div variants={fadeUp} className={styles.ctas}>
-          <button className={styles.btnPrimary} onClick={() => navigate('#projets')}>
-            Voir mes projets
+          <button className={styles.btnPrimary} onClick={() => scrollToSection('#projects')}>
+            {t('hero.projectsBtn')}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
             </svg>
           </button>
-          <button className={styles.btnOutline} onClick={() => navigate('#about')}>
-            Mon profil
+          <button className={styles.btnOutline} onClick={() => scrollToSection('#about')}>
+            {lang === 'fr' ? 'Mon profil' : 'About me'}
           </button>
-          <button className={styles.btnOutline} onClick={() => navigate('#contact')}>
-            Me contacter
+          <button className={styles.btnOutline} onClick={() => scrollToSection('#contact')}>
+            {t('hero.contactBtn')}
           </button>
           {personal.cv && (
             <a href={personal.cv} download className={styles.btnCv}>
@@ -127,26 +124,23 @@ export default function Hero() {
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
-              Mon CV
+              {t('nav.cv')}
             </a>
           )}
         </motion.div>
 
-        {/* Infos rapides en bas */}
         <motion.div variants={fadeUp} className={styles.meta}>
           {[
-            { icon: '', val: 'Douala, Cameroun' },
-            { icon: '', val: 'IUC · Licence 3' },
-            { icon: '', val: 'Laravel · MySQL · React' },
+            { val: 'Douala, Cameroun' },
+            { val: 'IUC · Licence 3' },
+            { val: 'Laravel · MySQL · React' },
           ].map(m => (
             <span key={m.val} className={styles.metaItem}>
-              <span className={styles.metaIcon}>{m.icon}</span>
               {m.val}
             </span>
           ))}
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           className={styles.scrollHint}
           initial={{ opacity: 0 }}

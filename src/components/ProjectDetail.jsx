@@ -1,6 +1,7 @@
-import { useParams, useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useParams, useNavigate } from 'react'
+import { useEffect, useState } from 'react'
 import { projects } from '../data/portfolio'
+import { useLanguage } from '../context/LanguageContext'
 import styles from './ProjectDetail.module.css'
 
 const statusMap = {
@@ -41,21 +42,39 @@ function CheckIcon() {
   )
 }
 
+function CloseIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  )
+}
+
 export default function ProjectDetail() {
   const { slug } = useParams()
   const navigate = useNavigate()
+  const { t } = useLanguage()
   const project = projects.find(p => p.slug === slug)
+  const [lightboxImg, setLightboxImg] = useState(null)
 
   useEffect(() => {
     window.scrollTo({ top: 0 })
-  }, [slug])
+    if (project) {
+      document.title = `${project.title} — Chris Nguefah`
+    } else {
+      document.title = `Projet introuvable — Chris Nguefah`
+    }
+    return () => {
+      document.title = 'Chris Nguefah — Développeur Full Stack'
+    }
+  }, [slug, project])
 
   if (!project) {
     return (
       <div className={styles.notFound}>
-        <p>Projet introuvable.</p>
+        <p>{t('projectDetail.notFound')}</p>
         <button className={styles.backBtn} onClick={() => navigate('/')}>
-          <BackIcon /> Retour à l'accueil
+          <BackIcon /> {t('projectDetail.back')}
         </button>
       </div>
     )
@@ -69,7 +88,7 @@ export default function ProjectDetail() {
 
         {/* Navigation */}
         <button className={styles.backBtn} onClick={() => navigate('/#projects')}>
-          <BackIcon /> Retour aux projets
+          <BackIcon /> {t('projectDetail.back')}
         </button>
 
         {/* Header */}
@@ -93,39 +112,39 @@ export default function ProjectDetail() {
 
           {/* CTA liens */}
           <div className={styles.ctas}>
-            {project.demo
-              ? <a href={project.demo} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary}>
-                  <ExternalIcon /> Voir la démo
-                </a>
-              : <span className={`${styles.btnPrimary} ${styles.disabled}`}>
-                  <ExternalIcon /> Démo non disponible
-                </span>
-            }
-            {project.github
-              ? <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
-                  <GithubIcon /> Code source
-                </a>
-              : <span className={`${styles.btnSecondary} ${styles.disabled}`}>
-                  <GithubIcon /> Dépôt privé
-                </span>
-            }
+            {project.demo ? (
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary}>
+                <ExternalIcon /> {t('projects.demo')}
+              </a>
+            ) : (
+              <span className={`${styles.btnPrimary} ${styles.disabled}`}>
+                <ExternalIcon /> {t('projectDetail.demoNotAvailable')}
+              </span>
+            )}
+            {project.github ? (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
+                <GithubIcon /> {t('projects.code')}
+              </a>
+            ) : (
+              <span className={`${styles.btnSecondary} ${styles.disabled}`}>
+                <GithubIcon /> {t('projectDetail.privateRepo')}
+              </span>
+            )}
           </div>
         </header>
 
         {/* Image principale */}
-        {project.thumb && (
-          <div className={styles.mainThumb}>
-            <img src={project.thumb} alt={project.title} />
+        {project.thumb ? (
+          <div className={styles.mainThumb} onClick={() => setLightboxImg(project.thumb)}>
+            <img src={project.thumb} alt={project.title} loading="lazy" />
+            <div className={styles.zoomHint}>{t('projects.zoomHint')}</div>
           </div>
-        )}
-        {!project.thumb && (
+        ) : (
           <div className={styles.thumbPlaceholder}>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.2">
               <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
             </svg>
-            <span>
-              projet en cours
-            </span>
+            <span>{t('projects.previewComing')}</span>
           </div>
         )}
 
@@ -134,7 +153,7 @@ export default function ProjectDetail() {
 
           {/* Description longue */}
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>À propos du projet</h2>
+            <h2 className={styles.sectionTitle}>{t('projectDetail.aboutProject')}</h2>
             <div className={styles.descLong}>
               {(project.descriptionLong || project.description).split('\n\n').map((para, i) => (
                 <p key={i}>{para.trim()}</p>
@@ -147,7 +166,7 @@ export default function ProjectDetail() {
             {/* Fonctionnalités */}
             {project.features && (
               <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>Fonctionnalités</h2>
+                <h2 className={styles.sectionTitle}>{t('projectDetail.featuresTitle')}</h2>
                 <ul className={styles.featureList}>
                   {project.features.map((f, i) => (
                     <li key={i} className={styles.featureItem}>
@@ -162,12 +181,12 @@ export default function ProjectDetail() {
             {/* Stack détaillé */}
             {project.techDetails && (
               <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>Technologies utilisées</h2>
+                <h2 className={styles.sectionTitle}>{t('projectDetail.techTitle')}</h2>
                 <div className={styles.techList}>
-                  {project.techDetails.map((t, i) => (
+                  {project.techDetails.map((tech, i) => (
                     <div key={i} className={styles.techItem}>
-                      <div className={styles.techName}>{t.name}</div>
-                      <div className={styles.techRole}>{t.role}</div>
+                      <div className={styles.techName}>{tech.name}</div>
+                      <div className={styles.techRole}>{tech.role}</div>
                     </div>
                   ))}
                 </div>
@@ -179,11 +198,11 @@ export default function ProjectDetail() {
           {/* Galerie screenshots */}
           {project.screenshots && project.screenshots.length > 0 && (
             <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Captures d'écran</h2>
+              <h2 className={styles.sectionTitle}>{t('projectDetail.screenshots')}</h2>
               <div className={styles.gallery}>
                 {project.screenshots.map((src, i) => (
-                  <div key={i} className={styles.galleryItem}>
-                    <img src={src} alt={`${project.title} — capture ${i + 1}`} />
+                  <div key={i} className={styles.galleryItem} onClick={() => setLightboxImg(src)}>
+                    <img src={src} alt={`${project.title} — capture ${i + 1}`} loading="lazy" />
                   </div>
                 ))}
               </div>
@@ -191,6 +210,16 @@ export default function ProjectDetail() {
           )}
 
         </div>
+
+        {/* Modal Lightbox */}
+        {lightboxImg && (
+          <div className={styles.lightboxOverlay} onClick={() => setLightboxImg(null)}>
+            <button className={styles.closeLightbox} onClick={() => setLightboxImg(null)} aria-label="Fermer">
+              <CloseIcon />
+            </button>
+            <img src={lightboxImg} alt="Plein écran" className={styles.lightboxImage} onClick={e => e.stopPropagation()} />
+          </div>
+        )}
 
         {/* Navigation entre projets */}
         <div className={styles.projectNav}>
@@ -200,28 +229,26 @@ export default function ProjectDetail() {
             const next = projects[idx + 1]
             return (
               <>
-                {prev
-                  ? <button className={styles.projectNavBtn} onClick={() => navigate(`/projects/${prev.slug}`)}>
-                      <BackIcon />
-                      <span>
-                        <span className={styles.navLabel}>Projet précédent</span>
-                        <span className={styles.navTitle}>{prev.title}</span>
-                      </span>
-                    </button>
-                  : <div />
-                }
-                {next
-                  ? <button className={`${styles.projectNavBtn} ${styles.projectNavBtnRight}`} onClick={() => navigate(`/projects/${next.slug}`)}>
-                      <span>
-                        <span className={styles.navLabel}>Projet suivant</span>
-                        <span className={styles.navTitle}>{next.title}</span>
-                      </span>
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                      </svg>
-                    </button>
-                  : <div />
-                }
+                {prev ? (
+                  <button className={styles.projectNavBtn} onClick={() => navigate(`/projects/${prev.slug}`)}>
+                    <BackIcon />
+                    <span>
+                      <span className={styles.navLabel}>{t('projectDetail.prevProject')}</span>
+                      <span className={styles.navTitle}>{prev.title}</span>
+                    </span>
+                  </button>
+                ) : <div />}
+                {next ? (
+                  <button className={`${styles.projectNavBtn} ${styles.projectNavBtnRight}`} onClick={() => navigate(`/projects/${next.slug}`)}>
+                    <span>
+                      <span className={styles.navLabel}>{t('projectDetail.nextProject')}</span>
+                      <span className={styles.navTitle}>{next.title}</span>
+                    </span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                  </button>
+                ) : <div />}
               </>
             )
           })()}

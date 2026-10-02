@@ -10,7 +10,7 @@ export const personal = {
   email: 'marcelochris98@gmail.com',
   github: 'https://github.com/marcelochris98-collab',
   linkedin: 'https://www.linkedin.com/in/chris-nguefah-ab4a0a395',
-   whatsapp: '+237689703281',
+   whatsapp: '+237697837223',
   available: true,
   // ── Photo de profil ──────────────────────────────────────
   // 1. Place ta photo dans public/images/photo.jpg
@@ -142,73 +142,7 @@ L'accent est mis sur la robustesse métier, la gestion des unités de mesure sp�
     ],
     // screenshots: ['/images/kamerstock-1.png', '/images/kamerstock-2.png'],
   },
-  {
-    id: 2,
-    slug: 'cofaoc',
-    title: 'COFAOC',
-    subtitle: 'Coopérative Financière',
-    stack: ['Laravel 11', 'React', 'JWT'],
-    year: '2026',
-    description: 'Application de gestion pour une coopérative financière. Spécifications fonctionnelles, modélisation UML, authentification JWT et tableau de bord.',
-    status: 'in-progress',
-    demo: null,
-    github: null,
-    featured: false,
-    // thumb: '/images/cofaoc.png',
 
-    descriptionLong: `COFAOC est une application web de gestion développée pour une coopérative financière.
-Le projet a démarré par une phase de conception complète : rédaction des spécifications fonctionnelles, modélisation UML, et livrable Word structuré.
-
-L'implémentation repose sur une architecture SPA avec Laravel en backend API et React en frontend, sécurisée par JWT.`,
-    features: [
-      'Authentification sécurisée par JWT',
-      'Tableau de bord de suivi des membres',
-      'Gestion des comptes et des opérations',
-      'Spécifications fonctionnelles complètes',
-      'Modélisation UML (cas d\'utilisation, séquence)',
-      'Architecture API REST + SPA React',
-    ],
-    techDetails: [
-      { name: 'Laravel 11', role: 'Backend API REST' },
-      { name: 'React', role: 'Interface utilisateur (SPA)' },
-      { name: 'JWT', role: 'Authentification stateless' },
-      { name: 'MySQL', role: 'Base de données relationnelle' },
-      { name: 'UML', role: 'Modélisation et conception' },
-    ],
-  },
-  {
-    id: 3,
-    slug: 'afriland-scrap',
-    title: 'Afriland Scrap',
-    subtitle: 'Gestion du Matériel IT',
-    stack: ['Laravel', 'JWT', 'Tailwind CSS'],
-    year: '2026',
-    description: 'Outil de suivi du cycle de vie du matériel informatique conçu lors d\'un stage à Afriland First Bank.',
-    status: 'delivered',
-    demo: null,
-    github: null,
-    featured: false,
-    // thumb: '/images/afriland-scrap.png',
-
-    descriptionLong: `Afriland Scrap est un système de gestion du cycle de vie du matériel informatique, développé lors d'un stage professionnel à Afriland First Bank.
-
-Le projet inclut une maquette UI/UX complète aux couleurs de la banque (rouge/anthracite), puis l'implémentation du backend et du tableau de bord de suivi.`,
-    features: [
-      'Inventaire du matériel informatique',
-      'Suivi du cycle de vie (achat → réforme)',
-      'Tableau de bord avec état du parc',
-      'Fiches équipement détaillées',
-      'Modales d\'action (affecter, reformer, réparer)',
-      'Interface aux couleurs d\'Afriland First Bank',
-    ],
-    techDetails: [
-      { name: 'Laravel', role: 'Framework backend' },
-      { name: 'JWT', role: 'Authentification' },
-      { name: 'Tailwind CSS', role: 'Interface utilisateur' },
-      { name: 'MySQL', role: 'Base de données' },
-      { name: 'HTML / CSS / JS', role: 'Maquette UI/UX initiale' },
-    ],
-  },
   {
     id: 4,
     slug: 'ruche-dor',
@@ -300,3 +234,21 @@ export const experience = [
     tags: ['PHP', 'Java', 'MySQL', 'UML', 'Merise', 'TCP/UDP'],
   },
 ]
+
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Département Informatique',
+    role: 'Afriland First Bank · Douala',
+    content: "Chris a fait preuve d'une excellente autonomie et d'une grande rigueur durant son stage. Sa capacité à concevoir une solution complète de gestion du parc IT comme Afriland Scrap a été très appréciée.",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Fondateur Ruche d\'Or',
+    role: 'Entreprise Artisanale · Cameroun',
+    content: "Une collaboration très fluide. Chris a compris nos besoins métier et a livré une plateforme e-commerce et un panneau d'administration sur mesure très simples à prendre en main.",
+    rating: 5,
+  },
+]
+
