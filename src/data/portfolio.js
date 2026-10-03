@@ -236,6 +236,43 @@ Le système intègre nativement la gestion de caisse enregistreuse rapide, le su
       { name: 'Offline-First & PWA', role: 'Résilience réseau et mode dégradé automatique' },
     ],
   },
+  {
+    id: 6,
+    slug: 'omnivault',
+    title: 'Omnivault',
+    subtitle: 'SaaS de Gestion de Stock, Ventes & Comptabilité PME',
+    stack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Assistant IA', 'PWA'],
+    year: '2026',
+    description: 'Solution SaaS tout-en-un de gestion commerciale et de stock pour PME au Cameroun : produits, ventes, facturation, multi-magasins, suivi de production, comptabilité et assistant IA conversationnel.',
+    status: 'delivered',
+    demo: 'https://stocks.uniprice.org/',
+    github: null,
+    featured: true,
+    thumb: '/images/omnivault.png',
+
+    descriptionLong: `Omnivault est un logiciel de gestion commerciale et de stock tout-en-un conçu spécifiquement pour les PME et commerçants en Afrique (Cameroun).
+
+Il réunit au sein d'une même application web et mobile la gestion des produits et des inventaires multi-magasins, la prise de vente rapide (Point de Vente / Caisse), l'édition de factures et devis, le suivi de la production et de la transformation de matières premières, ainsi qu'une comptabilité simplifiée avec suivi des dépenses.
+
+L'application intègre un Assistant IA intelligent capable de répondre en langage naturel aux questions des dirigeants sur leurs ventes, leurs stocks et leurs clients, et de générer instantanément des rapports analytiques complets en PDF avec graphiques interactifs.`,
+    features: [
+      'Gestion centralisée des produits, catégories et inventaires multi-magasins',
+      'Point de vente (POS) & caisse avec scanner de codes-barres intégré via caméra mobile',
+      'Édition de factures, devis, bons de livraison et gestion des paiements clients/fournisseurs',
+      'Module de gestion de production et suivi de transformation des matières premières',
+      'Comptabilité PME simplifiée et suivi analytique des dépenses d\'exploitation',
+      'Assistant IA conversationnel pour requêtes en langage naturel et génération de rapports PDF',
+      'Gestion granulaire des rôles d\'utilisateurs et permissions par magasin',
+      'Progressive Web App (PWA) installable sur Android, iOS et ordinateur avec notifications push',
+    ],
+    techDetails: [
+      { name: 'Next.js & React', role: 'Framework React moderne App Router & PWA' },
+      { name: 'TypeScript', role: 'Typage strict pour la fiabilité de la logique commerciale' },
+      { name: 'Tailwind CSS', role: 'Design system moderne avec mode sombre natif' },
+      { name: 'Assistant IA (LLM/NLP)', role: 'Analyse conversationnelle des données et rapports PDF' },
+      { name: 'Multi-Tenant Architecture', role: 'Isolation stricte des données et gestion multi-magasins' },
+    ],
+  },
 ]
 
 export const experience = [
