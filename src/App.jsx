@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar        from './components/Navbar'
@@ -11,6 +12,14 @@ import Testimonials  from './components/Testimonials'
 import Contact       from './components/Contact'
 import ProjectDetail from './components/ProjectDetail'
 import PageTransition from './components/PageTransition'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname])
+  return null
+}
 
 function Home() {
   return (
@@ -29,18 +38,15 @@ function Home() {
 }
 
 export default function App() {
-  const location = useLocation()
-
   return (
     <>
+      <ScrollToTop />
       <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/"                  element={<Home />} />
-          <Route path="/projects/:slug"    element={<ProjectDetail />} />
-          <Route path="*"                  element={<Home />} />
-        </Routes>
-      </AnimatePresence>
+      <Routes>
+        <Route path="/"                  element={<Home />} />
+        <Route path="/projects/:slug"    element={<PageTransition><ProjectDetail /></PageTransition>} />
+        <Route path="*"                  element={<Home />} />
+      </Routes>
       <Footer />
     </>
   )

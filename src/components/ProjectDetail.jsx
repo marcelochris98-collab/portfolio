@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { projects } from '../data/portfolio'
 import { useLanguage } from '../context/LanguageContext'
@@ -82,12 +82,19 @@ export default function ProjectDetail() {
 
   const status = statusMap[project.status] || statusMap['planned']
 
+  const handleBack = () => {
+    navigate('/')
+    setTimeout(() => {
+      document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
+    }, 150)
+  }
+
   return (
     <div className={styles.page}>
       <div className={styles.inner}>
 
         {/* Navigation */}
-        <button className={styles.backBtn} onClick={() => navigate('/#projects')}>
+        <button className={styles.backBtn} onClick={handleBack}>
           <BackIcon /> {t('projectDetail.back')}
         </button>
 

@@ -21,6 +21,14 @@ function GithubIcon() {
   )
 }
 
+function ArrowRightIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+    </svg>
+  )
+}
+
 function ProjectCard({ project, delay }) {
   const navigate = useNavigate()
   const { ref, visible } = useScrollReveal()
@@ -34,25 +42,35 @@ function ProjectCard({ project, delay }) {
 
   const statusCls = project.status === 'in-progress' ? 'wip' : 'done'
 
+  const handleCardClick = (e) => {
+    // Si l'utilisateur clique sur un lien externe, ne pas naviguer vers la page interne
+    if (e.target.closest('a')) return
+    navigate(`/projects/${project.slug}`)
+  }
+
   return (
     <article
       ref={ref}
-      className={`${styles.card} ${project.featured ? styles.featured : ''} ${visible ? styles.visible : ''}`}
-      style={{ transitionDelay: `${delay}ms`, cursor: 'pointer' }}
-      onClick={() => navigate(`/projects/${project.slug}`)}
+      className={`${styles.card} ${visible ? styles.visible : ''}`}
+      style={{ transitionDelay: `${delay}ms` }}
+      onClick={handleCardClick}
     >
       <div className={styles.thumb}>
         {project.thumb ? (
           <img src={project.thumb} alt={project.title} className={styles.thumbImg} loading="lazy" />
         ) : (
           <div className={styles.thumbPlaceholder}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.25">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.3">
               <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
             </svg>
             <span className={styles.thumbHint}>{t('projects.previewComing')}</span>
           </div>
         )}
-        <span className={`${styles.status} ${styles[statusCls]}`}>{statusLabel}</span>
+        <div className={styles.thumbOverlay} />
+        <span className={`${styles.status} ${styles[statusCls]}`}>
+          <span className={styles.statusDot} />
+          {statusLabel}
+        </span>
       </div>
 
       <div className={styles.body}>
@@ -68,20 +86,29 @@ function ProjectCard({ project, delay }) {
         <p className={styles.desc}>{project.description}</p>
 
         <div className={styles.footer}>
-          {project.demo ? (
-            <a href={project.demo} target="_blank" rel="noopener noreferrer" className={`${styles.link} ${styles.linkActive}`}>
-              <ExternalIcon /> {t('projects.demo')}
-            </a>
-          ) : (
-            <span className={`${styles.link} ${styles.linkDisabled}`}><ExternalIcon /> {t('projects.demo')}</span>
-          )}
-          {project.github ? (
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className={`${styles.link} ${styles.linkActive}`}>
-              <GithubIcon /> {t('projects.code')}
-            </a>
-          ) : (
-            <span className={`${styles.link} ${styles.linkDisabled}`}><GithubIcon /> {t('projects.code')}</span>
-          )}
+          <button
+            className={styles.detailsBtn}
+            onClick={(e) => {
+              e.stopPropagation()
+              navigate(`/projects/${project.slug}`)
+            }}
+          >
+            {t('projects.viewDetails')}
+            <ArrowRightIcon />
+          </button>
+          
+          <div className={styles.externalLinks}>
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" className={styles.iconLink} title={t('projects.demo')} onClick={e => e.stopPropagation()}>
+                <ExternalIcon />
+              </a>
+            )}
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.iconLink} title={t('projects.code')} onClick={e => e.stopPropagation()}>
+                <GithubIcon />
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </article>

@@ -3,100 +3,87 @@
 // ============================================================
 
 export const personal = {
-  name: 'Chris Nguefah',
-  title: 'Développeur Full Stack',
-  subtitle: 'Étudiant en Licence 3 · IUC Douala',
+  name: 'Nguefah Tsafack Chris Beauclaire',
+  title: 'Développeur Frontend Junior',
+  subtitle: 'Titulaire d\'une Licence Pro Génie Logiciel & Développeur chez Bestcorp',
   location: 'Douala, Cameroun',
   email: 'marcelochris98@gmail.com',
   github: 'https://github.com/marcelochris98-collab',
-  linkedin: 'https://www.linkedin.com/in/chris-nguefah-ab4a0a395',
-   whatsapp: '+237697837223',
+  linkedin: 'https://linkedin.com/in/chris-nguefah-ab4a0a395',
+  whatsapp: '+237689703281',
   available: true,
   // ── Photo de profil ──────────────────────────────────────
-  // 1. Place ta photo dans public/images/photo.jpg
-  // 2. Décommente la ligne ci-dessous
-  photo: '/images/photo.png',
+  photo: '/images/photo.jpeg',
   // ── CV téléchargeable ────────────────────────────────────
-  // 1. Place ton CV dans public/files/cv-chris-nguefah.pdf
-  // 2. Décommente la ligne ci-dessous
-   cv: '/files/cv-chris-nguefah.pdf',
+  cv: '/files/cv-chris-nguefah.pdf',
   bio: [
-    "Je suis Chris Nguefah, développeur full stack basé à Douala. Titulaire d'un BTS en Génie Logiciel (Université JFN), je poursuis actuellement une Licence 3 à l'IUC.",
-    "Mon environnement principal est Laravel, MySQL et Tailwind CSS. Je construis des applications web orientées métier, avec un soin particulier pour la maintenabilité et la lisibilité du code.",
-    "En dehors des cours, je travaille sur KamerStock — un système de gestion de quincaillerie conçu pour répondre à des besoins réels du marché camerounais.",
+    "Jeune développeur web passionné et motivé, titulaire d'une Licence Professionnelle en Génie Logiciel / Systèmes d'Information (IUC / ISTDI) et d'un BTS en Développement Web et Technologies Informatiques (JFN).",
+    "Actuellement développeur frontend junior chez Bestcorp, je maîtrise PHP, Laravel, HTML/CSS et MySQL, avec un niveau avancé en React et Next.js et une pratique active au quotidien de TypeScript.",
+    "En apprentissage continu de Prisma, Angular, Python et Java/Spring Boot, je suis toujours à la recherche d'opportunités pour approfondir mon expertise et relever de nouveaux défis.",
   ],
   stats: [
-    { value: '3+', label: 'Projets réels' },
-    { value: 'BTS', label: 'Génie Logiciel' },
-    { value: 'L3', label: 'En cours — IUC' },
+    { value: 'Licence', label: 'Génie Logiciel (obtenue)' },
+    { value: 'Bestcorp', label: 'Dev Frontend Junior' },
+    { value: 'BTS', label: 'Développement Web' },
     { value: 'CMR', label: 'Douala, Cameroun' },
   ],
 }
 
 export const skills = [
   {
-    category: 'Backend',
-    items: [
-      { name: 'Laravel', featured: true },
-      { name: 'PHP 8', featured: true },
-      { name: 'MySQL', featured: true },
-       { name: 'Next.js', featured: true },
-      { name: 'Eloquent ORM', featured: false },
-      { name: 'API REST', featured: false },
-      { name: 'Migrations', featured: false },
-      { name: 'Artisan CLI', featured: false },
-    ],
-  },
-  {
     category: 'Frontend',
     items: [
-      { name: 'Tailwind CSS', featured: true },
-      { name: 'Blade', featured: true },
-      { name: 'React', featured: false },
-      { name: 'HTML5 / CSS3', featured: false },
-      { name: 'JavaScript', featured: false },
-      { name: 'AlpineJS', featured: false },
+      { name: 'React · Next.js (avancé)', featured: true },
+      { name: 'TypeScript', featured: true },
+      { name: 'HTML5 / CSS3 / JavaScript', featured: true },
+      { name: 'Tailwind CSS (Design System)', featured: true },
+      { name: 'Blade', featured: false },
     ],
   },
   {
-    category: 'Outils & Environnement',
+    category: 'Backend',
+    items: [
+      { name: 'PHP · Laravel', featured: true },
+      { name: 'MySQL / XAMPP / Laragon', featured: true },
+      { name: 'Prisma (ORM)', featured: false },
+      { name: 'API REST / Webhooks', featured: false },
+      { name: 'Python', featured: false },
+    ],
+  },
+  {
+    category: 'Outils & CI/CD',
     items: [
       { name: 'Git / GitHub', featured: true },
-      { name: 'Laragon', featured: true },
-      { name: 'Composer', featured: false },
+      { name: 'GitHub Actions (CI/CD)', featured: true },
+      { name: 'Laragon / VS Code', featured: false },
       { name: 'npm / Vite', featured: false },
-      { name: 'Linux (bases)', featured: false },
-      { name: 'VS Code', featured: false },
     ],
   },
   {
-    category: 'Architecture & Méthodes',
+    category: 'En Apprentissage & Notion',
     items: [
-      { name: 'MVC', featured: true },
-      { name: 'UML / Merise', featured: false },
-      { name: 'Design Patterns', featured: false },
-      { name: 'RBAC', featured: false },
-      { name: 'CRUD', featured: false },
+      { name: 'Java / Spring Boot', featured: true },
+      { name: 'Angular · RxJS (notions)', featured: false },
+      { name: 'Prisma (ORM)', featured: false },
+      { name: 'Python', featured: false },
     ],
   },
   {
-    category: 'Sécurité & Auth',
+    category: 'Soft Skills',
     items: [
-      { name: 'JWT', featured: true },
-      { name: 'Laravel Sanctum', featured: false },
-      { name: 'Middleware', featured: false },
-      { name: 'CSRF', featured: false },
-      { name: 'Hashing', featured: false },
+      { name: 'Capacité d\'apprentissage', featured: true },
+      { name: 'Travail en autonomie', featured: true },
+      { name: 'Rigueur et organisation', featured: false },
+      { name: 'Résolution de problèmes', featured: false },
+      { name: 'Esprit d\'équipe', featured: false },
+      { name: 'Veille technologique', featured: false },
     ],
   },
   {
-    category: 'Autres',
+    category: 'Langues',
     items: [
-      { name: 'Java (réseau)', featured: false },
-      { name: 'TCP / UDP', featured: false },
-      { name: 'Python (bases)', featured: false },
-      { name: 'DomPDF', featured: false },
-      { name: 'GLPI', featured: false },
+      { name: 'Français — courant (95%)', featured: true },
+      { name: 'Anglais — notions (25%)', featured: false },
     ],
   },
 ]
@@ -104,151 +91,188 @@ export const skills = [
 export const projects = [
   {
     id: 1,
-    slug: 'kamerstock',                    // utilisé dans l'URL : /projects/kamerstock
-    title: 'KamerStock',
-    subtitle: 'Gestion de Quincaillerie',
-    stack: ['Laravel 12', 'MySQL', 'Tailwind CSS'],
-    year: '2026 – présent',
-    description: 'Système complet de gestion pour une quincaillerie : stock, ventes, retours, fournisseurs, unités de mesure, caisse et rapports PDF.',
+    slug: 'eazlypost',
+    title: 'EazlyPost',
+    subtitle: 'Gestion de réseaux sociaux (Bestcorp)',
+    stack: ['React 19', 'Next.js 15', 'TypeScript', 'Tailwind CSS', 'GitHub Actions'],
+    year: 'Août 2026 – En cours',
+    description: 'Plateforme B2B de gestion de réseaux sociaux pour créateurs et entreprises africaines. Interface sous React 19 / Next.js 15 et TypeScript.',
     status: 'in-progress',
-    demo: null,
+    demo: 'https://eazypost.cm/',
     github: null,
     featured: true,
-     thumb: '/images/kamer.png',
+    thumb: '/images/eazlypost.png',
 
-    // ── Champs page de détail ─────────────────────────────
-    descriptionLong: `KamerStock est un système de gestion conçu pour répondre aux besoins réels d'une quincaillerie camerounaise.
-Le projet couvre l'ensemble du cycle de vie commercial : de la réception fournisseur jusqu'aux rapports de caisse en fin de journée.
-
-L'accent est mis sur la robustesse métier, la gestion des unités de mesure spécifiques au secteur, et la génération de documents PDF brandés.`,
+    descriptionLong: `Plateforme B2B de gestion de réseaux sociaux développée au sein du studio Bestcorp pour les créateurs et entreprises en Afrique.
+Intégration d'un design system neubrutaliste sur mesure (Tailwind CSS), montée en compétence avancée sur React 19, Next.js 15, adoption complète de TypeScript et automatisation de pipelines CI/CD avec GitHub Actions.`,
     features: [
-      'Gestion du stock avec alertes de seuil',
-      'Module de ventes avec gestion des retours',
-      'Gestion des fournisseurs et historique des achats',
-      'Unités de mesure configurables par produit',
-      'Rapports PDF (factures, bons de livraison)',
-      'Tableau de bord avec indicateurs clés',
-      'Gestion de caisse et clôture journalière',
-      'Système de rôles et permissions (RBAC)',
+      'Gestion et planification de publications sur réseaux sociaux',
+      'Interface utilisateur neubrutaliste responsive',
+      'Architecture moderne React 19 & Next.js 15 avec App Router',
+      'Typage strict TypeScript sur l\'ensemble du frontend',
+      'Workflows collaboratifs Git et déploiement continu CI/CD via GitHub Actions',
     ],
     techDetails: [
-      { name: 'Laravel 12', role: 'Framework backend principal — routing, ORM, auth' },
-      { name: 'MySQL 8', role: 'Base de données relationnelle' },
-      { name: 'Tailwind CSS', role: 'Framework CSS utilitaire pour l\'interface' },
-      { name: 'DomPDF', role: 'Génération de rapports et factures PDF' },
-      { name: 'Laravel Sanctum', role: 'Authentification et gestion des sessions' },
-      { name: 'Eloquent ORM', role: 'Couche d\'abstraction base de données' },
-      { name: 'Laragon', role: 'Environnement de développement local (Windows)' },
+      { name: 'React 19 & Next.js 15', role: 'Frameworks React modernes frontend' },
+      { name: 'TypeScript', role: 'Langage principal pour la robustesse et le typage' },
+      { name: 'Tailwind CSS', role: 'Design System Neubrutaliste' },
+      { name: 'GitHub Actions', role: 'Pipeline d\'intégration et déploiement continu (CI/CD)' },
     ],
-    // screenshots: ['/images/kamerstock-1.png', '/images/kamerstock-2.png'],
   },
-
   {
-    id: 4,
-    slug: 'ruche-dor',
-    title: "Ruche d'Or",
-    subtitle: 'E-commerce Miel Artisanal',
-    stack: ['PHP natif', 'MySQL', 'Python'],
-    year: '2026',
-    description: 'Site e-commerce pour une entreprise artisanale de miel. Site public, panneau d\'administration, gestion des commandes.',
+    id: 2,
+    slug: 'kamerstock',
+    title: 'KamerStock',
+    subtitle: 'Gestion de Quincaillerie Multi-tenant',
+    stack: ['Laravel 12', 'MySQL', 'Tailwind CSS'],
+    year: 'Projet tutoré académique',
+    description: 'Système complet de gestion pour quincaillerie (stocks, ventes, caisse enregistreuse, fournisseurs, matériaux) avec architecture multi-tenant en cours.',
+    status: 'in-progress',
+    demo: 'https://kamerstock.alwaysdata.net/',
+    github: null,
+    featured: true,
+    thumb: '/images/kamer.png',
+
+    descriptionLong: `KamerStock (anciennement Quincaillerie-Flow / MetalCore) est une application web de gestion complète conçue pour les quincailleries du marché camerounais.
+Développée avec Laravel 12 et MySQL, elle gère l'ensemble du cycle de vente, les réapprovisionnements fournisseurs, la caisse et la préparation d'une architecture multi-tenant.`,
+    features: [
+      'Gestion avancée des stocks, catégories et unités de mesure',
+      'Module de vente rapide et gestion de caisse enregistreuse',
+      'Gestion des fournisseurs et des commandes de réapprovisionnement',
+      'Interface responsive moderne en Tailwind CSS',
+      'Architecture multi-tenant en cours de développement',
+    ],
+    techDetails: [
+      { name: 'Laravel 12', role: 'Framework PHP backend' },
+      { name: 'MySQL', role: 'Base de données relationnelle' },
+      { name: 'Tailwind CSS', role: 'Interface utilisateur responsive' },
+    ],
+  },
+  {
+    id: 3,
+    slug: 'gestion-rebuts',
+    title: 'Gestion des Rebuts',
+    subtitle: 'Application métier — Afriland First Bank',
+    stack: ['PHP pur', 'MySQL'],
+    year: 'Stage professionnel',
+    description: 'Application métier pour la gestion des rebuts bancaires. Développée en PHP pur & MySQL et déployée en environnement professionnel réel.',
     status: 'delivered',
     demo: null,
     github: null,
     featured: false,
-     thumb: '/images/ruche-dor.png',
+    thumb: '/images/afriland.jpg',
 
-    descriptionLong: `Ruche d'Or est un site e-commerce développé en PHP natif pour une entreprise artisanale de miel camerounaise.
-
-Le projet comprend un site public de présentation et de commande, un panneau d'administration complet, et un module de traitement d'images côté serveur avec Python.`,
+    descriptionLong: `Application métier conçue et développée pendant le stage à Afriland First Bank pour informatiser le suivi et la gestion des rebuts au sein de la banque.`,
     features: [
-      'Site public avec catalogue produits',
-      'Système de commande en ligne',
-      'Panneau d\'administration complet',
-      'Gestion des commandes et des clients',
-      'Traitement et redimensionnement d\'images (Python)',
-      'Rapports de ventes',
+      'Conception de la base de données relationnelle MySQL',
+      'Développement de l\'interface métier et des formulaires de gestion',
+      'Tracking et traitement des équipements/rebuts bancaires',
+      'Livraison et déploiement effectif en environnement réel',
     ],
     techDetails: [
-      { name: 'PHP natif', role: 'Backend sans framework' },
-      { name: 'MySQL', role: 'Base de données' },
-      { name: 'Python', role: 'Traitement d\'images côté serveur' },
-      { name: 'HTML / CSS', role: 'Interface publique et admin' },
-      { name: 'Sessions PHP', role: 'Authentification admin' },
+      { name: 'PHP pur', role: 'Développement backend natif' },
+      { name: 'MySQL', role: 'Conception et gestion de la base de données' },
     ],
   },
+  {
+    id: 4,
+    slug: 'gestion-archives',
+    title: 'Gestion des Archives',
+    subtitle: 'Système Documentaire — EPFA PRO',
+    stack: ['PHP', 'MySQL', 'HTML/CSS/JS'],
+    year: 'Déc. 2024 – En cours',
+    description: 'Système de gestion documentaire pour l\'école de formation professionnelle EPFA PRO.',
+    status: 'delivered',
+    demo: null,
+    github: 'https://github.com/marcelochris98-collab',
+    featured: false,
+    thumb: '/images/epfa.jpg',
 
-  // ── AJOUTER UN PROJET ────────────────────────────────────
-  // Copie ce bloc, remplis les champs et décommente-le :
-  //
-  // {
-  //   id: 5,
-  //   slug: 'mon-projet',               // URL : /projects/mon-projet
-  //   title: 'Nom du projet',
-  //   subtitle: 'Sous-titre',
-  //   stack: ['Laravel', 'MySQL'],
-  //   year: '2025',
-  //   description: 'Courte description (carte d\'accueil).',
-  //   status: 'delivered',              // 'delivered' | 'in-progress' | 'planned'
-  //   demo: null,                       // 'https://...' ou null
-  //   github: null,                     // 'https://...' ou null
-  //   featured: false,                  // true = carte large (2 colonnes)
-  //   thumb: '/images/mon-projet.png',  // image carte (optionnel)
-  //   descriptionLong: `Description complète sur la page de détail.`,
-  //   features: [
-  //     'Fonctionnalité 1',
-  //     'Fonctionnalité 2',
-  //   ],
-  //   techDetails: [
-  //     { name: 'Laravel', role: 'Framework backend' },
-  //   ],
-  //   screenshots: ['/images/mon-projet-1.png'],
-  // },
+    descriptionLong: `Système de gestion des archives réalisé pour l'école de formation professionnelle EPFA PRO, permettant le classement et la recherche de documents.`,
+    features: [
+      'Archivage et numérisation des documents de formation',
+      'Moteur de recherche et filtres par catégorie',
+      'Interface dynamique en HTML, CSS et JavaScript',
+    ],
+    techDetails: [
+      { name: 'PHP & MySQL', role: 'Gestion des données et stockage' },
+      { name: 'JavaScript / HTML / CSS', role: 'Interface utilisateur et interactions' },
+    ],
+  },
 ]
 
 export const experience = [
   {
     id: 1,
-    period: '2026 – présent',
-    title: 'Licence 3 — Génie Logiciel',
-    org: 'IUC (Institut Universitaire de la Côte) · Douala',
-    type: 'education',
-    description: "Formation en développement d'applications, architecture logicielle, gestion de bases de données et conception de systèmes d'information.",
-    tags: ['Laravel', 'React', 'UML', 'Gestion de projet'],
+    period: 'Août 2026 – En cours',
+    title: 'Stage — Développeur Frontend Junior',
+    org: 'Bestcorp · Douala, Cameroun (Startup tech studio)',
+    type: 'internship',
+    description: 'Contribution au développement frontend d\'EazlyPost (plateforme B2B de gestion de réseaux sociaux pour créateurs et entreprises africaines). Montée en compétence avancée sur React 19 et Next.js 15 avec TypeScript. Développement de composants UI sur design system neubrutaliste (Tailwind CSS), workflows Git collaboratifs et découverte du CI/CD (GitHub Actions).',
+    tags: ['React 19', 'Next.js 15', 'TypeScript', 'Tailwind CSS', 'GitHub Actions', 'EazlyPost'],
   },
   {
     id: 2,
-    period: '2026',
-    title: 'Stagiaire Développeur — Afriland First Bank',
-    org: 'Afriland First Bank · Douala',
+    period: 'Déc. 2024 – En cours',
+    title: 'Stage — Développeur Web & Maintenance',
+    org: 'EPFA PRO (École de Formation Professionnelle) · Douala, Cameroun',
     type: 'internship',
-    description: "Stage professionnel au sein du département informatique. Travaux de réseaux et conception du système Afriland Scrap de gestion du matériel IT.",
-    tags: ['Réseaux', 'Laravel', 'JWT', 'Tailwind CSS'],
+    description: 'Développement et maintenance de pages web (HTML, CSS, JavaScript), intégration de maquettes UI responsives, développement backend PHP et réalisation du projet Gestion des archives (PHP + MySQL). Tests, débogage et collaboration pédagogique.',
+    tags: ['HTML/CSS', 'JavaScript', 'PHP', 'MySQL', 'Gestion Archives'],
   },
   {
     id: 3,
-    period: '2024 – 2025',
-    title: 'BTS — Génie Logiciel',
-    org: 'Université JFN · Douala',
+    period: 'Stage professionnel',
+    title: 'Stage — Développeur & Informatique',
+    org: 'Afriland First Bank · Cameroun',
+    type: 'internship',
+    description: 'Développement d\'une application métier complète de gestion des rebuts en PHP pur et MySQL (conçue, développée et déployée en environnement bancaire réel). Maintenance informatique (dépannage imprimantes & bureautique) et gestion logistique du matériel de réunion.',
+    tags: ['PHP pur', 'MySQL', 'Maintenance IT', 'Gestion Rebuts'],
+  },
+  {
+    id: 4,
+    period: '2025 / 2026',
+    title: 'Licence Professionnelle — Obtenue (Génie Logiciel)',
+    org: 'IUC / ISTDI · Douala',
     type: 'education',
-    description: "Formation en développement logiciel, bases de données, programmation orientée objet, réseaux informatiques et méthodes de conception.",
-    tags: ['PHP', 'Java', 'MySQL', 'UML', 'Merise', 'TCP/UDP'],
+    description: 'Formation en Génie Logiciel et Systèmes d\'Information. Diplôme de Licence Professionnelle obtenu.',
+    tags: ['Licence Pro', 'Génie Logiciel', 'Systèmes d\'Information', 'IUC / ISTDI'],
+  },
+  {
+    id: 5,
+    period: '2023 – 2024',
+    title: 'BTS — Développement Web et Tech Informatiques',
+    org: 'JFN - High-Tech University Institut · Douala',
+    type: 'education',
+    description: 'Brevet de Technicien Supérieur en Développement Web et Technologies Informatiques.',
+    tags: ['BTS', 'Développement Web', 'Tech Informatiques', 'JFN'],
+  },
+  {
+    id: 6,
+    period: '2022 – 2023',
+    title: 'Baccalauréat',
+    org: 'Lycée Bilingue de Logpom · Douala',
+    type: 'education',
+    description: 'Obtention du Baccalauréat au Lycée Bilingue de Logpom.',
+    tags: ['Baccalauréat', 'Logpom'],
   },
 ]
 
 export const testimonials = [
   {
     id: 1,
-    name: 'Département Informatique',
-    role: 'Afriland First Bank · Douala',
-    content: "Chris a fait preuve d'une excellente autonomie et d'une grande rigueur durant son stage. Sa capacité à concevoir une solution complète de gestion du parc IT comme Afriland Scrap a été très appréciée.",
+    name: 'Équipe Bestcorp',
+    role: 'Startup Tech Studio · Douala',
+    content: "Chris apporte une très belle énergie dans l'équipe frontend. Sa maîtrise rapide de Next.js 15, React 19 et TypeScript ainsi que son rigoureux respect du design system sur EazlyPost sont très appréciables.",
     rating: 5,
   },
   {
     id: 2,
-    name: 'Fondateur Ruche d\'Or',
-    role: 'Entreprise Artisanale · Cameroun',
-    content: "Une collaboration très fluide. Chris a compris nos besoins métier et a livré une plateforme e-commerce et un panneau d'administration sur mesure très simples à prendre en main.",
+    name: 'Département Informatique',
+    role: 'Afriland First Bank · Cameroun',
+    content: "Chris a fait preuve d'une excellente autonomie et d'une grande rigueur durant son stage. La solution métier de gestion des rebuts qu'il a développée et déployée réponds parfaitement aux besoins opérationnels.",
     rating: 5,
   },
 ]
+
 

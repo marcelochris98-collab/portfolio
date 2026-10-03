@@ -19,7 +19,7 @@ const fadeIn = {
   show:   { opacity: 1, transition: { duration: 0.9, ease: 'easeOut' } },
 }
 
-const roles = ['Full Stack', 'JavaScript', 'Backend', 'React', 'Next.js', 'Full Stack']
+const roles = ['Frontend Junior', 'React & Next.js', 'TypeScript', 'PHP & Laravel', 'Frontend Junior']
 
 export default function Hero() {
   const roleRef = useRef(null)
@@ -91,8 +91,8 @@ export default function Hero() {
 
         <motion.p variants={fadeUp} className={styles.sub}>
           {lang === 'fr'
-            ? "Étudiant en Licence 3 à l'IUC Douala — je conçois des applications web robustes et maintenables, de la base de données jusqu'à l'interface."
-            : "Software Engineering Student (L3) at IUC Douala — I design robust, maintainable web applications from database to UI."}
+            ? "Développeur frontend junior chez Bestcorp & titulaire d'une Licence Pro en Génie Logiciel (IUC). Spécialisé en React 19, Next.js 15, TypeScript et PHP/Laravel."
+            : "Junior frontend developer at Bestcorp & Software Engineering Bachelor graduate (IUC). Specialized in React 19, Next.js 15, TypeScript and PHP/Laravel."}
         </motion.p>
 
         <motion.div variants={fadeIn} className={styles.sep}>
@@ -131,9 +131,9 @@ export default function Hero() {
 
         <motion.div variants={fadeUp} className={styles.meta}>
           {[
-            { val: 'Douala, Cameroun' },
-            { val: 'IUC · Licence 3' },
-            { val: 'Laravel · MySQL · React' },
+            { val: t('hero.metaLocation') },
+            { val: t('hero.metaDegree') },
+            { val: t('hero.metaStack') },
           ].map(m => (
             <span key={m.val} className={styles.metaItem}>
               {m.val}
