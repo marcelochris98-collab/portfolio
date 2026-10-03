@@ -4,7 +4,7 @@
 
 export const personal = {
   name: 'Nguefah Tsafack Chris Beauclaire',
-  title: 'Développeur Frontend Junior',
+  title: 'Développeur Full Stack',
   subtitle: 'Titulaire d\'une Licence Pro Génie Logiciel & Développeur chez Bestcorp',
   location: 'Douala, Cameroun',
   email: 'marcelochris98@gmail.com',
@@ -18,12 +18,12 @@ export const personal = {
   cv: '/files/cv-chris-nguefah.pdf',
   bio: [
     "Jeune développeur web passionné et motivé, titulaire d'une Licence Professionnelle en Génie Logiciel / Systèmes d'Information (IUC / ISTDI) et d'un BTS en Développement Web et Technologies Informatiques (JFN).",
-    "Actuellement développeur frontend junior chez Bestcorp, je maîtrise PHP, Laravel, HTML/CSS et MySQL, avec un niveau avancé en React et Next.js et une pratique active au quotidien de TypeScript.",
+    "Actuellement développeur chez Bestcorp, je maîtrise PHP, Laravel, HTML/CSS et MySQL, avec un niveau avancé en React et Next.js et une pratique active au quotidien de TypeScript.",
     "En apprentissage continu de Prisma, Angular, Python et Java/Spring Boot, je suis toujours à la recherche d'opportunités pour approfondir mon expertise et relever de nouveaux défis.",
   ],
   stats: [
     { value: 'Licence', label: 'Génie Logiciel (obtenue)' },
-    { value: 'Bestcorp', label: 'Dev Frontend Junior' },
+    { value: 'Bestcorp', label: 'Développeur Full Stack' },
     { value: 'BTS', label: 'Développement Web' },
     { value: 'CMR', label: 'Douala, Cameroun' },
   ],

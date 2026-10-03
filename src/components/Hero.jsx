@@ -47,14 +47,14 @@ export default function Hero() {
             <motion.h1 variants={fadeUp} className={styles.nameTitle}>
               Chris Nguefah
               <span className={styles.subtitleTitle}>
-                {lang === 'fr' ? 'Développeur Frontend Junior' : 'Junior Frontend Developer'}
+                {lang === 'fr' ? 'Développeur Full Stack' : 'Full Stack Developer'}
               </span>
             </motion.h1>
 
             <motion.p variants={fadeUp} className={styles.sub}>
               {lang === 'fr'
-                ? "Développeur frontend junior chez Bestcorp & titulaire d'une Licence Pro en Génie Logiciel (IUC). Spécialisé en React 19, Next.js 15, TypeScript et PHP/Laravel."
-                : "Junior frontend developer at Bestcorp & Software Engineering Bachelor graduate (IUC). Specialized in React 19, Next.js 15, TypeScript and PHP/Laravel."}
+                ? "Développeur full stack chez Bestcorp & titulaire d'une Licence Pro en Génie Logiciel (IUC). Spécialisé en React 19, Next.js 15, TypeScript et PHP/Laravel."
+                : "Full stack developer at Bestcorp & Software Engineering Bachelor graduate (IUC). Specialized in React 19, Next.js 15, TypeScript and PHP/Laravel."}
             </motion.p>
 
             <motion.div variants={fadeUp} className={styles.ctas}>

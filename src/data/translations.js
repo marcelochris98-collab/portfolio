@@ -10,8 +10,8 @@ export const translations = {
       cv: 'CV',
     },
     hero: {
-      available: 'Développeur Frontend Junior chez Bestcorp',
-      subtitle: 'Développeur Web & Frontend Junior · Douala, Cameroun',
+      available: 'Développeur Full Stack chez Bestcorp',
+      subtitle: 'Développeur Full Stack · Douala, Cameroun',
       contactBtn: 'Me contacter',
       projectsBtn: 'Voir mes projets',
       aboutBtn: 'Mon profil',
@@ -22,7 +22,7 @@ export const translations = {
     about: {
       label: 'À propos',
       heading: 'Concevoir des interfaces utilisateur modernes et des applications web performantes.',
-      subheading: 'Développeur Frontend Junior chez Bestcorp.',
+      subheading: 'Développeur Full Stack chez Bestcorp.',
       availableTag: 'Disponible pour opportunités',
       downloadCv: 'Télécharger mon CV',
       cvHint: 'Pour activer le CV : place ton PDF dans public/files/ et décommente cv dans portfolio.js',
@@ -40,7 +40,7 @@ export const translations = {
       },
       stats: {
         projects: 'Génie Logiciel',
-        bts: 'Dev Frontend Junior',
+        bts: 'Développeur Full Stack',
         l3: 'Développement Web',
         location: 'Douala, Cameroun',
       }
@@ -130,8 +130,8 @@ export const translations = {
       cv: 'Resume',
     },
     hero: {
-      available: 'Junior Frontend Developer at Bestcorp',
-      subtitle: 'Junior Web & Frontend Developer · Douala, Cameroon',
+      available: 'Full Stack Developer at Bestcorp',
+      subtitle: 'Full Stack Developer · Douala, Cameroon',
       contactBtn: 'Contact Me',
       projectsBtn: 'View Projects',
       aboutBtn: 'About Me',
@@ -142,7 +142,7 @@ export const translations = {
     about: {
       label: 'About',
       heading: 'Building modern user interfaces and high-performance web apps.',
-      subheading: 'Junior Frontend Developer at Bestcorp.',
+      subheading: 'Full Stack Developer at Bestcorp.',
       availableTag: 'Available for opportunities',
       downloadCv: 'Download Resume',
       cvHint: 'To enable resume: place your PDF in public/files/ and uncomment cv in portfolio.js',
@@ -160,7 +160,7 @@ export const translations = {
       },
       stats: {
         projects: 'Software Eng.',
-        bts: 'Junior Frontend Dev',
+        bts: 'Full Stack Developer',
         l3: 'Web Dev HND',
         location: 'Douala, Cameroon',
       }
