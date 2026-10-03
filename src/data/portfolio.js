@@ -199,6 +199,43 @@ Développée avec Laravel 12 et MySQL, elle gère l'ensemble du cycle de vente, 
       { name: 'JavaScript / HTML / CSS', role: 'Interface utilisateur et interactions' },
     ],
   },
+  {
+    id: 5,
+    slug: 'tchoop237',
+    title: 'TCHOOP 237',
+    subtitle: 'Plateforme SaaS de Digitalisation Restaurant & Menu QR',
+    stack: ['Next.js', 'React', 'Tailwind CSS', 'Mobile Money API', 'SSE'],
+    year: '2026',
+    description: 'Solution tout-en-un de digitalisation pour restaurants africains : menu QR code interactif, KDS cuisine en temps réel, caisse enregistreuse, gestion des stocks par IA et paiement mobile (Orange Money & MTN MoMo).',
+    status: 'delivered',
+    demo: 'https://www.tchoop237.com/',
+    github: null,
+    featured: true,
+    thumb: '/images/tchoop237.png',
+
+    descriptionLong: `TCHOOP 237 est une plateforme SaaS complète conçue pour digitaliser l'expérience client et optimiser les opérations en cuisine et en salle pour les restaurants africains.
+
+Elle permet aux clients de consulter le menu digital enrichi et de commander directement depuis leur table via un simple QR Code, sans téléchargement d'application. Côté restaurant, les commandes sont transmises instantanément en cuisine sur un écran KDS (Kitchen Display System) en temps réel via SSE (Server-Sent Events), éliminant les tickets papier et les erreurs de service.
+
+Le système intègre nativement la gestion de caisse enregistreuse rapide, le suivi intelligent des stocks avec alertes IA, ainsi que l'encaissement via les moyens de paiement mobile les plus populaires en Afrique (Orange Money & MTN MoMo).`,
+    features: [
+      'Menu digital interactif accessible par QR Code unique par table sans application',
+      'KDS Cuisine (Kitchen Display System) avec transmission des commandes en temps réel',
+      'Plan de salle interactif et suivi du statut des tables en temps réel',
+      'Encaissement rapide en caisse avec gestion des remises, tickets PDF et pourboires',
+      'Intégration native des paiements mobiles Orange Money & MTN MoMo',
+      'Gestion dynamique des stocks avec alertes de rupture et suggestions IA',
+      'Mode résilient Offline-First adapté aux connexions mobiles instables',
+      'Tableau de bord analytics complet (suivi du CA, plats populaires, heures de pointe, exports)',
+    ],
+    techDetails: [
+      { name: 'Next.js & React', role: 'Architecture frontend moderne pour une expérience web fluide et rapide' },
+      { name: 'Tailwind CSS', role: 'Interface utilisateur responsive et moderne' },
+      { name: 'Server-Sent Events (SSE)', role: 'Transmission en temps réel des commandes vers la cuisine' },
+      { name: 'Mobile Money API', role: 'Paiements natifs Orange Money & MTN MoMo' },
+      { name: 'Offline-First & PWA', role: 'Résilience réseau et mode dégradé automatique' },
+    ],
+  },
 ]
 
 export const experience = [
