@@ -83,7 +83,7 @@ export default function Navbar() {
         ))}
         {personal.cv && (
           <li>
-            <a href={personal.cv} download className={styles.cvBtn}>
+            <a href={personal.cv} download className={styles.cvBtn} onClick={() => setMenuOpen(false)}>
               {t('nav.cv')}
             </a>
           </li>
