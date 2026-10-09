@@ -238,39 +238,37 @@ Le système intègre nativement la gestion de caisse enregistreuse rapide, le su
   },
   {
     id: 6,
-    slug: 'omnivault',
-    title: 'Omnivault',
-    subtitle: 'SaaS de Gestion de Stock, Ventes & Comptabilité PME',
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Assistant IA', 'PWA'],
+    slug: 'aquasafe-cameroun',
+    title: 'AquaSafe Cameroun',
+    subtitle: 'Plateforme Nationale de Classification & Suivi de la Potabilité des Eaux',
+    stack: ['React', 'Next.js', 'Tailwind CSS', 'Leaflet', 'PWA', 'Vercel'],
     year: '2026',
-    description: 'Solution SaaS tout-en-un de gestion commerciale et de stock pour PME au Cameroun : produits, ventes, facturation, multi-magasins, suivi de production, comptabilité et assistant IA conversationnel.',
+    description: 'Plateforme de référence pour classer, suivre et signaler la potabilité des eaux de boisson dans les localités du Cameroun d\'après 13 paramètres physico-chimiques et les normes OMS.',
     status: 'delivered',
-    demo: 'https://stocks.uniprice.org/',
+    demo: 'https://aqua-safe-delta.vercel.app/',
     github: null,
     featured: true,
-    thumb: '/images/omnivault.png',
+    thumb: '/images/aquasafe.png',
 
-    descriptionLong: `Omnivault est un logiciel de gestion commerciale et de stock tout-en-un conçu spécifiquement pour les PME et commerçants en Afrique (Cameroun).
+    descriptionLong: `AquaSafe Cameroun est une plateforme nationale novatrice développée sous la direction scientifique et académique de l'EGEM (École de Géologie et d'Exploitation Minière, Université de Ngaoundéré).
 
-Il réunit au sein d'une même application web et mobile la gestion des produits et des inventaires multi-magasins, la prise de vente rapide (Point de Vente / Caisse), l'édition de factures et devis, le suivi de la production et de la transformation de matières premières, ainsi qu'une comptabilité simplifiée avec suivi des dépenses.
+Elle permet de classifier et de cartographier en temps réel la potabilité des points d'eau de boisson (forages, puits, sources) sur l'ensemble du territoire camerounais en s'appuyant sur l'analyse multicritère de 13 paramètres physico-chimiques conformes aux normes OMS et nationales.
 
-L'application intègre un Assistant IA intelligent capable de répondre en langage naturel aux questions des dirigeants sur leurs ventes, leurs stocks et leurs clients, et de générer instantanément des rapports analytiques complets en PDF avec graphiques interactifs.`,
+La plateforme propose un accès citoyen géolocalisé via une carte interactive (Leaflet), un système d'alertes sanitaires instantanées avec recommandations de traitement, ainsi qu'un portail sécurisé dédié aux techniciens, chercheurs et autorités de santé.`,
     features: [
-      'Gestion centralisée des produits, catégories et inventaires multi-magasins',
-      'Point de vente (POS) & caisse avec scanner de codes-barres intégré via caméra mobile',
-      'Édition de factures, devis, bons de livraison et gestion des paiements clients/fournisseurs',
-      'Module de gestion de production et suivi de transformation des matières premières',
-      'Comptabilité PME simplifiée et suivi analytique des dépenses d\'exploitation',
-      'Assistant IA conversationnel pour requêtes en langage naturel et génération de rapports PDF',
-      'Gestion granulaire des rôles d\'utilisateurs et permissions par magasin',
-      'Progressive Web App (PWA) installable sur Android, iOS et ordinateur avec notifications push',
+      'Classification algorithmique automatique par niveau de risque sanitaire (conforme aux normes OMS)',
+      'Cartographie interactive (Leaflet) et recherche géolocalisée par localité (consultation publique)',
+      'Alertes sanitaires instantanées et conseils de traitement de l\'eau pour les populations',
+      'Suivi et historique des prélèvements par région et type de source (forages, puits, sources)',
+      'Progressive Web App (PWA) installable et responsive sur mobile, tablette et ordinateur',
+      'Espace sécurisé pour techniciens et chercheurs pour la saisie et validation des analyses physico-chimiques',
     ],
     techDetails: [
-      { name: 'Next.js & React', role: 'Framework React moderne App Router & PWA' },
-      { name: 'TypeScript', role: 'Typage strict pour la fiabilité de la logique commerciale' },
-      { name: 'Tailwind CSS', role: 'Design system moderne avec mode sombre natif' },
-      { name: 'Assistant IA (LLM/NLP)', role: 'Analyse conversationnelle des données et rapports PDF' },
-      { name: 'Multi-Tenant Architecture', role: 'Isolation stricte des données et gestion multi-magasins' },
+      { name: 'React & Next.js', role: 'Architecture frontend moderne pour une expérience web fluide et réactive' },
+      { name: 'Tailwind CSS & Lucide Icons', role: 'Interface utilisateur moderne, responsive et accessible' },
+      { name: 'Leaflet', role: 'Cartographie interactive et géolocalisation des points d\'eau' },
+      { name: 'PWA (Progressive Web App)', role: 'Application web installable sur mobile et ordinateur' },
+      { name: 'EGEM / Univ. Ngaoundéré', role: 'Cadre scientifique et algorithmes de classification multicritère' },
     ],
   },
 ]
